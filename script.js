@@ -13,13 +13,13 @@ let arr = document.querySelectorAll(".gameDivLink")
 //Crio o arr de objetos contendo a img e o nome do jogo
 let objArr = []
 //Crio um loop para percorrer cada um dos elementos do arr inicial
-//Instancio um obj dentro do loop pego as variaves src do img e o innerhtml do h3
+//Instancio um obj dentro do loop pego as variaves src do img, o link para o jogo e o innerhtml do h3
 //atribuo elas a suas respectivas chaves
 //Tive que fazer um ternario porque por algum motivo alguns cards tem um strong como child
 for(let i = 0; i < arr.length;i++){
     let obj = {}
     obj.img = arr[i].childNodes[0].childNodes[0].src
-    
+    obj.link = arr[i].href
     obj.name = arr[i].childNodes[1].childNodes[0].innerHTML === undefined?  arr[i].childNodes[2].childNodes[0].innerHTML : arr[i].childNodes[1].childNodes[0].innerHTML
     obj.name.toUpperCase()
     objArr.push(obj)
@@ -38,13 +38,3 @@ objArr.sort( (a,b) =>{
 })
 //Finalizando ao chamar o array de obj e possivel ver que ele esta em ordem alphabetica
 
-//Segundo desafio usar esses dados para criar uma lista no html dos jogos do gamepass em ordem alphabetica
-let body = document.querySelector("body")
-
-for(let i = 0;i<objArr.length;i++){
-    let card = document.createElement("div")
-    card.className = "Card-Game"
-    let img = document.createElement("img")
-    img.setAttribute("href",objArr.src)
-    img.setAttribute("alt",)
-}
